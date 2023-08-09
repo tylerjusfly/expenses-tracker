@@ -3,7 +3,14 @@ import { onMounted, ref } from 'vue'
 // import { store } from "../app/store";
 import moment from 'moment'
 
-const AllExpenses = ref([
+interface Iexpense {
+  price: number
+  item: string
+  group: string
+  created_at: string
+}
+
+const AllExpenses = ref<Iexpense[]>([
   {
     price: 100,
     item: 'Bread and Bama',

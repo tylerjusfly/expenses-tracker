@@ -10,7 +10,7 @@ function saveToStorage() {
   //   Fetch array from local storage
   const Expenses: any = localStorage.getItem('myExpenses')
 
-  // An Error Might Occur Here Because i'm Trying to parse a null value
+  // create UUID for expenses
 
   const newExpenses = {
     price: price.value,
@@ -18,6 +18,8 @@ function saveToStorage() {
     group: groupType.value,
     created_at: new Date()
   }
+
+  // An Error Might Occur Here Because i'm Trying to parse a null value
 
   const parsedExpenses = Expenses ? JSON.parse(Expenses) : []
 
@@ -37,35 +39,42 @@ function saveToStorage() {
   <main>
     <div class="m-4">
       <form class="flex flex-col gap-4 justify-center items-center">
-        <div>
-          <label for="description" class="block mb-2 text-sm font-medium text-white"
-            >Description</label
-          >
-          <input
-            type="text"
-            id="description"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-            v-model="description"
-            placeholder="what did you eat ?"
-            required
-          />
-        </div>
+        <!-- Parent div -->
+        <div class="flex flex-row gap-3">
+          <!-- Description -->
 
-        <div>
-          <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
-          <input
-            type="text"
-            id="price"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-            v-model="price"
-            placeholder="price"
-            required
-          />
+          <div>
+            <label for="description" class="block mb-2 text-sm font-medium text-white"
+              >Description</label
+            >
+            <input
+              type="text"
+              id="description"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+              v-model="description"
+              placeholder="what did you eat ?"
+              required
+            />
+          </div>
+
+          <!-- Price -->
+
+          <div>
+            <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
+            <input
+              type="text"
+              id="price"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+              v-model="price"
+              placeholder="price"
+              required
+            />
+          </div>
         </div>
 
         <select
           v-model="groupType"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 mt-5 w-1/2"
         >
           <option disabled value="">Please Select</option>
           <option>Morning</option>
@@ -74,7 +83,7 @@ function saveToStorage() {
         </select>
 
         <button
-          class="bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4"
+          class="bg-[#464bd8] hover:bg-[#4d46d9] focus:outline-none focus:ring-2 focus:ring-[#464bd8] focus:ring-opacity-50 py-2 px-4 font-mono rounded"
           @click="saveToStorage"
         >
           Add To Records

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-one {
+    @apply bg-[#464bd8] px-3 py-1 rounded-sm font-semibold font-mono hover:text-[#f8f8f8] hover:bg-[#464bd8] border-2 hover:border-[#464bd8];
+  }
+}
